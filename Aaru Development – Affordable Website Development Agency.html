@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aaru Development – Affordable Website Development Agency</title>
+<meta name="description" content="Aaru Development is a team of 3 passionate developers building modern, responsive websites for businesses, startups and individuals at honest prices. Starting at ₹2,999.">
+<style>
+:root{--bg:#07070c;--bg2:#0e0e17;--tx:#eceaf5;--mu:#a3a1b8;--pu:#8b5cf6;--bl:#3b82f6;--cy:#22d3ee;--gl:rgba(255,255,255,.05);--bd:rgba(255,255,255,.1);--g:linear-gradient(120deg,#8b5cf6,#3b82f6,#22d3ee);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:16px/1.65 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"Space Grotesk","Plus Jakarta Sans",system-ui,sans-serif;line-height:1.1;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px}
+svg.i{width:1.3em;height:1.3em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{width:min(1160px,92%);margin:auto}
+section{padding:96px 0;position:relative}
+.bgfx{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 15% 0,#1a1033,transparent 55%),radial-gradient(ellipse at 90% 30%,#0b1a33,transparent 50%),var(--bg);background-size:140% 140%;animation:bgs 18s ease-in-out infinite alternate}
+.bgfx::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--gl) 1px,transparent 1px),linear-gradient(90deg,var(--gl) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 20%,#000,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000,transparent 70%)}
+@keyframes bgs{to{background-position:100% 60%}}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none;animation:fl 9s ease-in-out infinite}
+.gt{background:var(--g);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gs 6s linear infinite}
+@keyframes gs{to{background-position:200% 0}}
+@keyframes fl{50%{transform:translateY(-16px)}}
+/* loader */
+#ld{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:opacity .5s,visibility .5s}
+#ld.x{opacity:0;visibility:hidden}
+#ld b{font:700 28px "Space Grotesk",sans-serif;letter-spacing:.02em;animation:pl 1s ease-in-out infinite alternate}
+#ld i{display:block;height:2px;margin-top:12px;background:var(--g);animation:ln .9s ease-out forwards;width:0}
+@keyframes pl{to{opacity:.55}}@keyframes ln{to{width:100%}}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:.35s}
+nav.s{background:rgba(7,7,12,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
+.nb{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font:700 20px "Space Grotesk",sans-serif;display:flex;gap:10px;align-items:center}
+.logo span{width:30px;height:30px;border-radius:9px;background:var(--g);display:grid;place-items:center;font-size:15px}
+.links{display:flex;gap:28px;align-items:center;font-size:15px;color:var(--mu)}
+.links a:hover{color:var(--tx)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:12px;font-weight:600;border:1px solid var(--bd);background:var(--gl);color:var(--tx);cursor:pointer;font-family:inherit;font-size:15px;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:var(--g);border:0;color:#fff;box-shadow:0 8px 28px -8px rgba(139,92,246,.6)}
+.btn.p:hover{box-shadow:0 12px 40px -6px rgba(59,130,246,.85)}
+.btn.s:hover{background:rgba(255,255,255,.1)}
+#mt{display:none;background:none;border:0;color:var(--tx);cursor:pointer;padding:8px}
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 80px;overflow:hidden}
+.hg{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(38px,5.6vw,70px);font-weight:700}
+.hero p.sub{color:var(--mu);font-size:18px;margin:22px 0 34px;max-width:520px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.tag{display:inline-flex;gap:8px;align-items:center;padding:6px 14px;border:1px solid var(--bd);border-radius:99px;background:var(--gl);font-size:14px;color:var(--mu);margin-bottom:22px}
+.tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cy);box-shadow:0 0 10px var(--cy)}
+.stage{position:relative;height:480px;perspective:1200px}
+.lap{position:absolute;left:50%;top:50%;width:min(440px,92%);transform:translate(-50%,-50%) rotateX(8deg) rotateY(-18deg);transform-style:preserve-3d;animation:lf 7s ease-in-out infinite}
+@keyframes lf{50%{transform:translate(-50%,-54%) rotateX(8deg) rotateY(-10deg)}}
+.scr{border:8px solid #1c1c2a;border-bottom-width:10px;border-radius:14px 14px 4px 4px;background:#0b0b14;aspect-ratio:16/10;overflow:hidden;box-shadow:0 40px 80px -20px rgba(139,92,246,.45),0 0 0 1px var(--bd)}
+.base{height:12px;margin:0 -6%;background:linear-gradient(#2a2a3b,#14141f);border-radius:0 0 14px 14px}
+.mk{padding:10px;display:grid;gap:7px;height:100%}
+.mk .bar{display:flex;gap:4px;align-items:center}.mk .bar i{width:6px;height:6px;border-radius:50%;background:#444}
+.mk .h{height:34%;border-radius:8px;background:var(--g);opacity:.85;display:flex;align-items:end;padding:8px;font:700 11px "Space Grotesk"}
+.mk .r{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;flex:1}.mk .r i{border-radius:6px;background:rgba(255,255,255,.08)}
+.fc{position:absolute;display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:rgba(20,20,34,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--bd);font-size:13px;animation:fl 6s ease-in-out infinite;box-shadow:0 14px 40px -14px #000}
+.fc code{font:12px ui-monospace,Menlo,monospace;color:var(--cy)}
+.fc.ic{padding:10px;border-radius:14px;font:700 13px "Space Grotesk"}
+.geo{position:absolute;border:1px solid rgba(139,92,246,.5);animation:sp 20s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+/* shared */
+.hd{max-width:640px;margin:0 0 52px}
+.hd.c{margin-inline:auto;text-align:center}
+.hd h2{font-size:clamp(30px,4vw,48px);font-weight:700;margin-bottom:14px}
+.hd p{color:var(--mu)}
+.card{background:var(--gl);border:1px solid var(--bd);border-radius:20px;padding:28px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .35s,border-color .35s,box-shadow .35s}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s;transition-delay:calc(var(--d,0)*90ms)}
+.rv.on{opacity:1;transform:none}
+.sep{height:1px;background:linear-gradient(90deg,transparent,var(--pu),var(--cy),transparent);opacity:.4}
+/* about */
+.ag{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.ag p{color:var(--mu);margin-bottom:16px}
+.hl{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hl .card{padding:22px}.hl .card svg{color:var(--cy);margin-bottom:10px}
+.hl b{display:block;font-family:"Space Grotesk";font-size:17px}
+.cnt{font:700 44px "Space Grotesk";display:block;line-height:1}
+/* services */
+.sg,.pg,.wg,.yg{display:grid;gap:22px}
+.sg{grid-template-columns:repeat(3,1fr)}
+.sv .ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(139,92,246,.15);color:#c4b5fd;margin-bottom:18px;transition:.4s}
+.sv:hover{transform:translateY(-8px);border-color:rgba(139,92,246,.6);box-shadow:0 20px 50px -20px rgba(139,92,246,.6)}
+.sv:hover .ico{background:var(--g);color:#fff;transform:rotate(-8deg) scale(1.1)}
+.sv h3{font-size:20px;margin-bottom:8px}.sv p{color:var(--mu);font-size:15px}
+/* pricing */
+.pg{grid-template-columns:repeat(3,1fr);align-items:stretch}
+.pc{display:flex;flex-direction:column;position:relative}
+.pc:hover{transform:translateY(-10px);box-shadow:0 30px 60px -24px rgba(59,130,246,.55);border-color:rgba(59,130,246,.6)}
+.pc.pop{background:linear-gradient(180deg,rgba(139,92,246,.18),var(--gl));border-color:rgba(139,92,246,.7);box-shadow:0 0 60px -20px rgba(139,92,246,.7)}
+.badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--g);padding:4px 14px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.06em;white-space:nowrap}
+.pc h3{font-size:18px;color:var(--mu);font-weight:600}
+.pr{font:700 46px "Space Grotesk";margin:10px 0 4px}.pr small{font-size:14px;color:var(--mu);font-weight:400}
+.pc>p{color:var(--mu);font-size:14px;margin-bottom:20px}
+.pc ul{list-style:none;padding:0;display:grid;gap:10px;margin-bottom:28px;flex:1;font-size:15px}
+.pc li{display:flex;gap:10px;align-items:flex-start}.pc li svg{color:var(--cy);margin-top:3px;width:1.1em;height:1.1em}
+.pc .btn{justify-content:center}
+.note{margin-top:34px;padding:22px 26px;font-size:14px;color:var(--mu)}
+.note ul{margin:8px 0 0 18px;display:grid;gap:4px}.note b{color:var(--tx)}
+/* work */
+.wg{grid-template-columns:repeat(3,1fr)}
+.wc{padding:18px;transform-style:preserve-3d;will-change:transform}
+.dev{position:relative;border-radius:12px;background:#0a0a12;border:1px solid var(--bd);overflow:hidden;aspect-ratio:16/10;margin-bottom:18px}
+.dev .bar{display:flex;gap:4px;padding:7px 10px;background:#15151f}.dev .bar i{width:6px;height:6px;border-radius:50%;background:#555}
+.dev .pv{margin:8px;height:calc(100% - 38px);border-radius:8px;background:var(--c);position:relative;overflow:hidden}
+.dev .pv::before{content:"";position:absolute;left:10%;top:22%;width:46%;height:10px;border-radius:5px;background:rgba(255,255,255,.8);box-shadow:0 16px 0 -2px rgba(255,255,255,.4),0 32px 0 -2px rgba(255,255,255,.3)}
+.mob{position:absolute;right:10px;bottom:-14px;width:50px;height:92px;border:3px solid #232334;border-radius:11px;background:var(--c);box-shadow:0 10px 24px #000}
+.wc h3{font-size:19px}.wc p{color:var(--mu);font-size:14px;margin:6px 0 12px}
+.tg{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}.tg span{font-size:12px;padding:3px 10px;border-radius:99px;background:rgba(34,211,238,.1);color:var(--cy)}
+.ph{font-size:12px;color:var(--mu);display:block;margin-bottom:10px}
+/* process */
+.yg{grid-template-columns:repeat(4,1fr);position:relative}
+.st .n{font:700 38px "Space Grotesk"}.st h3{font-size:19px;margin:6px 0}.st p{color:var(--mu);font-size:15px}
+/* why */
+.wy{grid-template-columns:repeat(3,1fr)}
+.wy .card{display:flex;gap:14px;align-items:flex-start;padding:22px}.wy svg{color:var(--cy);margin-top:2px;width:1.5em;height:1.5em}
+/* contact */
+.cg{display:grid;grid-template-columns:1.3fr 1fr;gap:28px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{display:grid;gap:6px;font-size:14px;color:var(--mu)}.f.w{grid-column:1/-1}
+input,select,textarea{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--bd);background:rgba(255,255,255,.04);color:var(--tx);font:inherit;font-size:15px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--pu);border-color:transparent}
+select option{background:#14141f}
+.ci{display:grid;gap:14px;align-content:start}
+.ci .card{display:flex;gap:14px;align-items:center;padding:20px}.ci svg{color:var(--cy)}
+.ci small{display:block;color:var(--mu)}
+.ci .btn{justify-content:center}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);opacity:0;background:#14141f;border:1px solid var(--bd);padding:12px 20px;border-radius:12px;z-index:90;transition:.3s;pointer-events:none}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+/* footer */
+footer{border-top:1px solid var(--bd);padding:54px 0 30px;color:var(--mu);font-size:15px}
+.fg{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.fl{display:flex;gap:18px;flex-wrap:wrap}.fl a:hover{color:var(--tx)}
+.cp{border-top:1px solid var(--bd);padding-top:22px;font-size:14px}
+/* cursor */
+#cu{position:fixed;width:34px;height:34px;border:1.5px solid var(--cy);border-radius:50%;pointer-events:none;z-index:99;left:0;top:0;opacity:0;transition:width .2s,height .2s,background .2s,opacity .3s;mix-blend-mode:screen}
+#cu.h{width:54px;height:54px;background:rgba(139,92,246,.2)}
+@media(max-width:960px){
+.hg,.ag,.cg{grid-template-columns:1fr}.sg,.wg,.wy{grid-template-columns:1fr 1fr}.pg{grid-template-columns:1fr;max-width:460px;margin:auto}.yg{grid-template-columns:1fr 1fr}.stage{height:400px}
+#mt{display:block}.links{position:fixed;top:calc(72px + env(safe-area-inset-top,0px));left:0;right:0;flex-direction:column;padding:24px;background:rgba(7,7,12,.96);border-bottom:1px solid var(--bd);transform:translateY(-130%);transition:.35s;gap:20px}.links.o{transform:none}
+}
+@media(max-width:600px){section{padding:68px 0}.sg,.wg,.wy,.yg,form,.hl{grid-template-columns:1fr}.stage{height:330px}.fc.hm{display:none}.orb,.geo{display:none}.bgfx{animation:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="ck" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="biz" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 13h18"/></symbol>
+<symbol id="usr" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+<symbol id="rkt" viewBox="0 0 24 24"><path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2M12 15l-3-3a22 22 0 012-4 13 13 0 0111-5c0 3-1 8-5 11a22 22 0 01-4 2zM9 12H4l3-3h4M12 15v5l3-3v-4"/></symbol>
+<symbol id="tgt" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+<symbol id="spk" viewBox="0 0 24 24"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2zM19 16l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></symbol>
+<symbol id="rfs" viewBox="0 0 24 24"><path d="M20 12a8 8 0 01-14 5M4 12a8 8 0 0114-5M18 3v4h-4M6 21v-4h4"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+<symbol id="dsc" viewBox="0 0 24 24"><path d="M8 9.5c2.7-1 5.3-1 8 0M7 16c3 1.4 7 1.4 10 0M7.5 7l-2 9c1 1.2 2.4 2 4 2.5l.8-1.5M16.5 7l2 9c-1 1.2-2.4 2-4 2.5l-.8-1.5M8 5c1-.6 2.5-1 4-1s3 .4 4 1"/></symbol>
+<symbol id="cop" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></symbol>
+<symbol id="cash" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="mon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+<symbol id="phn" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+<symbol id="chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.5 7.2L4 20l1-4.5A8 8 0 1121 12z"/></symbol>
+<symbol id="hlp" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0116 0v2M4 14h3v5H5a1 1 0 01-1-1zM20 14h-3v5h2a1 1 0 001-1z"/></symbol>
+<symbol id="clk" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="shd" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="mnu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</defs></svg>
+
+<div id="ld" aria-hidden="true"><div><b>Aaru Development</b><i></i></div></div>
+<div class="bgfx" aria-hidden="true"></div>
+<div id="cu" aria-hidden="true"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<nav id="nav"><div class="wrap nb">
+<a href="#home" class="logo" aria-label="Aaru Development home"><span>A</span>Aaru Development</a>
+<button id="mt" aria-label="Toggle menu" aria-expanded="false"><svg class="i"><use href="#mnu"/></svg></button>
+<div class="links" id="lk">
+<a href="#about">About</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#work">Portfolio</a><a href="#contact">Contact</a>
+<a href="#contact" class="btn p" style="padding:10px 20px">Get Your Website</a>
+</div></div></nav>
+
+<main>
+<section class="hero" id="home">
+<div class="orb" style="width:380px;height:380px;background:#6d3df0;top:8%;right:-6%"></div>
+<div class="orb" style="width:300px;height:300px;background:#0ea5c9;bottom:0;left:-8%;animation-delay:-3s"></div>
+<div class="wrap hg">
+<div>
+<span class="tag rv">Your Vision. Our Development.</span>
+<h1 class="rv" style="--d:1">WE BUILD WEBSITES THAT <span class="gt">BUILD YOUR BUSINESS.</span></h1>
+<p class="sub rv" style="--d:2">From business websites to modern digital experiences, we turn your ideas into powerful online identities — at prices that make sense.</p>
+<div class="cta rv" style="--d:3"><a href="#contact" class="btn p">Get Your Website</a><a href="#services" class="btn s">Explore Our Services</a></div>
+</div>
+<div class="stage" aria-hidden="true" data-px="14">
+<div class="geo" style="width:70px;height:70px;top:6%;left:8%;border-radius:14px"></div>
+<div class="geo" style="width:46px;height:46px;bottom:10%;right:6%;border-radius:50%;animation-direction:reverse"></div>
+<div class="lap"><div class="scr"><div class="mk"><div class="bar"><i></i><i></i><i></i></div><div class="h">Your Brand Here</div><div class="r"><i></i><i></i><i></i></div></div></div><div class="base"></div></div>
+<div class="fc hm" style="top:6%;right:2%"><code>&lt;h1&gt;Hello, web&lt;/h1&gt;</code></div>
+<div class="fc" style="bottom:12%;left:0;animation-delay:-2s"><svg class="i"><use href="#mon"/></svg>Design card</div>
+<div class="fc ic" style="top:2%;left:30%;color:#f97316;animation-delay:-1s">HTML</div>
+<div class="fc ic" style="top:42%;left:-2%;color:#38bdf8;animation-delay:-4s">CSS</div>
+<div class="fc ic" style="bottom:2%;right:30%;color:#facc15;animation-delay:-3s">JS</div>
+<div class="fc ic hm" style="top:36%;right:-2%;color:#22d3ee;animation-delay:-5s">React</div>
+</div></div>
+</section>
+<div class="sep"></div>
+
+<section id="about"><div class="wrap ag">
+<div class="rv"><div class="hd" style="margin-bottom:24px"><h2><span class="gt">Small Team.</span> Big Ideas.</h2></div>
+<p>Aaru Development is a team of three passionate developers focused on helping businesses, startups and individuals establish their online presence.</p>
+<p>We believe every business deserves a professional website without spending a fortune.</p>
+<p>Our goal is simple: deliver quality websites, create meaningful digital experiences and build long-term relationships with our clients.</p></div>
+<div class="hl">
+<div class="card rv" style="--d:1"><svg class="i"><use href="#usr"/></svg><span class="cnt gt" data-n="3">0</span><b>Developers</b></div>
+<div class="card rv" style="--d:2"><svg class="i"><use href="#cash"/></svg><b>Affordable Pricing</b></div>
+<div class="card rv" style="--d:3"><svg class="i"><use href="#spk"/></svg><b>Quality-Focused Development</b></div>
+<div class="card rv" style="--d:4"><svg class="i"><use href="#shd"/></svg><b>Client Satisfaction</b></div>
+</div></div></section>
+
+<section id="services"><div class="wrap">
+<div class="hd c rv"><h2>Our <span class="gt">Services</span></h2><p>Everything you need to get online with a website that looks great and works everywhere.</p></div>
+<div class="sg">
+<article class="card sv rv" style="--d:0"><div class="ico"><svg class="i"><use href="#biz"/></svg></div><h3>Business Website Development</h3><p>Professional websites that build trust and bring customers to your business.</p></article>
+<article class="card sv rv" style="--d:1"><div class="ico"><svg class="i"><use href="#usr"/></svg></div><h3>Portfolio Website Development</h3><p>Showcase your work in a clean, memorable portfolio.</p></article>
+<article class="card sv rv" style="--d:2"><div class="ico"><svg class="i"><use href="#tgt"/></svg></div><h3>Landing Page Development</h3><p>Focused single pages designed to turn visitors into customers.</p></article>
+<article class="card sv rv" style="--d:3"><div class="ico"><svg class="i"><use href="#rkt"/></svg></div><h3>Startup Website Development</h3><p>Launch-ready sites that explain your idea and look investor-ready.</p></article>
+<article class="card sv rv" style="--d:4"><div class="ico"><svg class="i"><use href="#spk"/></svg></div><h3>Personal Branding Websites</h3><p>A home on the web that presents you the way you want to be seen.</p></article>
+<article class="card sv rv" style="--d:5"><div class="ico"><svg class="i"><use href="#rfs"/></svg></div><h3>Website Redesign and Modernization</h3><p>Fresh design and better performance for an outdated website.</p></article>
+</div></div></section>
+
+<section id="pricing"><div class="orb" style="width:340px;height:340px;background:#4f46e5;top:20%;left:30%;opacity:.25"></div><div class="wrap">
+<div class="hd c rv"><h2>Simple Pricing. <span class="gt">No Confusion.</span></h2></div>
+<div class="pg">
+<article class="card pc rv"><h3>STARTER</h3><div class="pr">₹2,999 <small>starting</small></div><p>Suitable for individuals and small businesses.</p>
+<ul><li><svg class="i"><use href="#ck"/></svg>Basic professional website</li><li><svg class="i"><use href="#ck"/></svg>Up to 3 pages</li><li><svg class="i"><use href="#ck"/></svg>Responsive mobile-friendly design</li><li><svg class="i"><use href="#ck"/></svg>Modern UI</li><li><svg class="i"><use href="#ck"/></svg>Contact information section</li><li><svg class="i"><use href="#ck"/></svg>Basic SEO setup</li><li><svg class="i"><use href="#ck"/></svg>Basic deployment assistance</li></ul>
+<a href="#contact" class="btn s" data-plan="Starter">Get Started</a></article>
+<article class="card pc pop rv" style="--d:1"><span class="badge">MOST POPULAR</span><h3>PROFESSIONAL</h3><div class="pr">₹4,999 <small>starting</small></div><p>Suitable for growing businesses and professionals.</p>
+<ul><li><svg class="i"><use href="#ck"/></svg>Professional multi-page website</li><li><svg class="i"><use href="#ck"/></svg>Up to 5 pages</li><li><svg class="i"><use href="#ck"/></svg>Custom UI/UX design</li><li><svg class="i"><use href="#ck"/></svg>Fully responsive layout</li><li><svg class="i"><use href="#ck"/></svg>Contact form integration</li><li><svg class="i"><use href="#ck"/></svg>Animations and interactive elements</li><li><svg class="i"><use href="#ck"/></svg>Basic SEO optimization</li><li><svg class="i"><use href="#ck"/></svg>Deployment assistance</li></ul>
+<a href="#contact" class="btn p" data-plan="Professional">Choose Professional</a></article>
+<article class="card pc rv" style="--d:2"><h3>PREMIUM</h3><div class="pr">₹7,999 <small>starting</small></div><p>Suitable for businesses wanting a premium online presence.</p>
+<ul><li><svg class="i"><use href="#ck"/></svg>Premium custom website</li><li><svg class="i"><use href="#ck"/></svg>Up to 8 pages</li><li><svg class="i"><use href="#ck"/></svg>Advanced UI/UX design</li><li><svg class="i"><use href="#ck"/></svg>Advanced animations and interactions</li><li><svg class="i"><use href="#ck"/></svg>Responsive across all devices</li><li><svg class="i"><use href="#ck"/></svg>Contact form integration</li><li><svg class="i"><use href="#ck"/></svg>SEO-friendly structure</li><li><svg class="i"><use href="#ck"/></svg>Advanced customization</li><li><svg class="i"><use href="#ck"/></svg>Deployment assistance</li></ul>
+<a href="#contact" class="btn s" data-plan="Premium">Get Premium</a></article>
+</div>
+<div class="card note rv"><b>Good to know</b><ul>
+<li><b style="color:var(--cy)">We’re fully negotiable.</b> If these prices feel high for your budget, talk to us and we’ll work out a plan that fits.</li>
+<li>Prices are starting prices. Final pricing may vary depending on project requirements.</li>
+<li>Domain registration and paid hosting/server charges are separate.</li>
+<li>Basic deployment assistance is FREE.</li>
+<li>Custom features and third-party paid integrations may cost extra.</li>
+<li>Need something different? <a href="#contact" style="color:var(--cy);text-decoration:underline">Contact us for a custom quotation.</a></li></ul></div>
+</div></section>
+
+<section id="work"><div class="wrap">
+<div class="hd c rv"><h2>Our <span class="gt">Work</span></h2><p>These are sample concepts that show our design style. Real client projects will be added here as we launch them.</p></div>
+<div class="wg" id="wg"></div>
+</div></section>
+
+<section id="process"><div class="wrap">
+<div class="hd c rv"><h2>Our Development <span class="gt">Process</span></h2></div>
+<div class="yg">
+<div class="card st rv"><span class="n gt">01</span><h3>Discussion</h3><p>We understand your business and requirements.</p></div>
+<div class="card st rv" style="--d:1"><span class="n gt">02</span><h3>Design</h3><p>We create a website design according to your vision.</p></div>
+<div class="card st rv" style="--d:2"><span class="n gt">03</span><h3>Development</h3><p>We develop and optimize your website.</p></div>
+<div class="card st rv" style="--d:3"><span class="n gt">04</span><h3>Launch</h3><p>We deploy your website and help you get online.</p></div>
+</div></div></section>
+
+<section id="why"><div class="wrap">
+<div class="hd c rv"><h2>Why Choose <span class="gt">Aaru Development?</span></h2></div>
+<div class="wg wy">
+<div class="card rv"><svg class="i"><use href="#cash"/></svg><span>Affordable and transparent pricing.</span></div>
+<div class="card rv" style="--d:1"><svg class="i"><use href="#spk"/></svg><span>Professional and modern designs.</span></div>
+<div class="card rv" style="--d:2"><svg class="i"><use href="#phn"/></svg><span>Mobile-friendly websites.</span></div>
+<div class="card rv" style="--d:3"><svg class="i"><use href="#chat"/></svg><span>Direct communication with developers.</span></div>
+<div class="card rv" style="--d:4"><svg class="i"><use href="#hlp"/></svg><span>Dedicated support.</span></div>
+<div class="card rv" style="--d:5"><svg class="i"><use href="#clk"/></svg><span>Focus on quality and timely delivery.</span></div>
+</div></div></section>
+
+<section id="contact"><div class="orb" style="width:360px;height:360px;background:#7c3aed;bottom:0;right:10%;opacity:.25"></div><div class="wrap">
+<div class="hd c rv"><h2>Have an Idea? <span class="gt">Let’s Build It.</span></h2><p>Tell us about your project. Let’s create something amazing together.</p></div>
+<div class="cg">
+<form class="card rv" id="cf">
+<label class="f">Full Name<input name="name" required autocomplete="name"></label>
+<label class="f">Email Address<input name="email" type="email" required autocomplete="email"></label>
+<label class="f">Business/Company Name<input name="company" autocomplete="organization"></label>
+<label class="f">Website Type<select name="type"><option>Business Website</option><option>Portfolio Website</option><option>Landing Page</option><option>Startup Website</option><option>Personal Branding Website</option><option>Website Redesign</option></select></label>
+<label class="f w">Budget<select name="budget" id="bud"><option>Starter (from ₹2,999)</option><option>Professional (from ₹4,999)</option><option>Premium (from ₹7,999)</option><option>Custom quotation</option></select></label>
+<label class="f w">Project Description<textarea name="msg" rows="5" required></textarea></label>
+<div class="f w"><button class="btn p" type="submit" style="justify-content:center">Send Project Details</button><span style="font-size:13px">This opens your email app with your details pre-filled, addressed to us.</span></div>
+</form>
+<div class="ci rv" style="--d:1">
+<div class="card"><svg class="i"><use href="#mail"/></svg><div><small>Email</small>aarubanglaff@gmail.com</div></div>
+<div class="card"><svg class="i"><use href="#dsc"/></svg><div><small>Discord Username</small><b id="du">aaru07061</b></div></div>
+<a class="btn p" href="mailto:aarubanglaff@gmail.com?subject=Website%20Project%20Inquiry&body=Hi%20Aaru%20Development%2C%0A%0AI%27d%20like%20to%20talk%20about%20a%20website%20project."><svg class="i"><use href="#mail"/></svg>Contact Us via Email</a>
+<button class="btn" id="dc" type="button"><svg class="i"><use href="#dsc"/></svg>Connect on Discord: aaru07061 <svg class="i"><use href="#cop"/></svg></button>
+</div></div></div></section>
+</main>
+
+<footer><div class="wrap">
+<div class="fg"><div><a href="#home" class="logo"><span>A</span>Aaru Development</a><p style="margin:12px 0">Building Digital Experiences That Matter.</p><p>aarubanglaff@gmail.com<br>Discord: aaru07061</p></div>
+<div class="fl"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#work">Portfolio</a><a href="#contact">Contact</a></div></div>
+<div class="cp">© 2026 Aaru Development. All Rights Reserved.</div></div></footer>
+
+<script>
+(function(){
+var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+// loader
+setTimeout(function(){$('#ld').classList.add('x')},rm?0:1100);
+// portfolio data: add real projects by appending objects here
+var P=[
+{n:'Sample: Café Landing Page',d:'Concept design for a small café. Placeholder, not a client project.',t:['HTML','CSS','JavaScript'],c:'linear-gradient(135deg,#f97316,#be185d)',u:''},
+{n:'Sample: Creative Portfolio',d:'Concept portfolio for a designer. Placeholder, not a client project.',t:['HTML','CSS','React'],c:'linear-gradient(135deg,#8b5cf6,#3b82f6)',u:''},
+{n:'Sample: Startup Website',d:'Concept SaaS startup site. Placeholder, not a client project.',t:['React','CSS','JavaScript'],c:'linear-gradient(135deg,#06b6d4,#3b82f6)',u:''}];
+$('#wg').innerHTML=P.map(function(p,i){return '<article class="card wc rv" style="--d:'+i+'"><div class="dev"><div class="bar"><i></i><i></i><i></i></div><div class="pv" style="--c:'+p.c+'"></div><div class="mob" style="--c:'+p.c+'"></div></div><span class="ph">Demo project</span><h3>'+p.n+'</h3><p>'+p.d+'</p><div class="tg">'+p.t.map(function(x){return '<span>'+x+'</span>'}).join('')+'</div>'+(p.u?'<a class="btn s" href="'+p.u+'" target="_blank" rel="noopener">View Project</a>':'<button class="btn s" type="button" disabled style="opacity:.6;cursor:not-allowed">View Project (coming soon)</button>')+'</article>'}).join('');
+// reveal
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);var c=$('.cnt',e.target);if(c)count(c)}})},{threshold:.15});
+$$('.rv').forEach(function(el){io.observe(el)});
+function count(c){var n=+c.dataset.n,i=0;if(rm){c.textContent=n;return}var t=setInterval(function(){c.textContent=++i;if(i>=n)clearInterval(t)},350)}
+// nav
+var nav=$('#nav');addEventListener('scroll',function(){nav.classList.toggle('s',scrollY>30)},{passive:true});
+var mt=$('#mt'),lk=$('#lk');mt.onclick=function(){var o=lk.classList.toggle('o');mt.setAttribute('aria-expanded',o)};
+$$('#lk a').forEach(function(a){a.onclick=function(){lk.classList.remove('o');mt.setAttribute('aria-expanded',false)}});
+// parallax + tilt + cursor (desktop only)
+if(!rm&&fine){
+var st=$('.stage');addEventListener('mousemove',function(e){var x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);st.style.transform='translate('+x*-14+'px,'+y*-14+'px)'},{passive:true});
+$$('.wc').forEach(function(c){c.onmousemove=function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(800px) rotateY('+x*10+'deg) rotateX('+-y*10+'deg) translateY(-4px)'};c.onmouseleave=function(){c.style.transform=''}});
+var cu=$('#cu');addEventListener('mousemove',function(e){cu.style.opacity=1;cu.style.transform='translate('+(e.clientX-17)+'px,'+(e.clientY-17)+'px)'},{passive:true});
+document.addEventListener('mouseover',function(e){cu.classList.toggle('h',!!e.target.closest('a,button,input,select,textarea'))});
+}
+// plan buttons preselect budget
+$$('[data-plan]').forEach(function(b){b.addEventListener('click',function(){var s=$('#bud');for(var i=0;i<s.options.length;i++)if(s.options[i].text.indexOf(b.dataset.plan)===0)s.selectedIndex=i})});
+// toast
+var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2400)}
+// discord copy
+$('#dc').onclick=function(){var u='aaru07061';function ok(){toast('Discord username copied: '+u)}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(ok,function(){toast('Our Discord username is '+u)})}else{toast('Our Discord username is '+u)}};
+// form -> mailto
+$('#cf').onsubmit=function(e){e.preventDefault();var f=new FormData(e.target),g=function(k){return f.get(k)||'-'};
+var b='Name: '+g('name')+'\nEmail: '+g('email')+'\nCompany: '+g('company')+'\nWebsite type: '+g('type')+'\nBudget: '+g('budget')+'\n\nProject description:\n'+g('msg');
+location.href='mailto:aarubanglaff@gmail.com?subject='+encodeURIComponent('Website Project Inquiry from '+g('name'))+'&body='+encodeURIComponent(b)};
+})();
+</script>
+</body>
+</html>
